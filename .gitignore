@@ -1,3 +1,7 @@
+.editorconfig
+.eslintrc.yml
+
+
 # Logs
 logs
 *.log
