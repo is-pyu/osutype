@@ -1,16 +1,16 @@
 {
-  "id": "dev.replugged.PluginTemplate",
-  "name": "Plugin Template",
-  "description": "A plugin template",
+  "id": "dev.ispyu.osutype",
+  "name": "Osutype",
+  "description": "plays osu typing sounds when you type",
   "author": {
-    "name": "replugged",
-    "discordID": "1000992611840049192",
-    "github": "replugged-org"
+    "name": "jai#0001 rewritten by is_pyu_#7597",
+    "discordID": "",
+    "github": "is-pyu"
   },
-  "version": "1.0.2",
+  "version": "1.0.0",
   "updater": {
     "type": "github",
-    "id": "replugged-org/plugin-template"
+    "id": "is-pyu/osutype"
   },
   "license": "MIT",
   "type": "replugged-plugin",
