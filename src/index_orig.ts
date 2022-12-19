@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
-// const { Plugin } = require('powercord/entities');
-import settings from "./settings";
+//old const { Plugin } = require('powercord/entities');
+//import settings from "./settings";
 import React from "react";
 let lastKey = ''
 
@@ -10,11 +10,11 @@ export async function startPlugin(): Promise<void> {
     audio.src = "https://github.com/happyori/OsuTyping/raw/master/menuclick.wav";
     audio.id = "osutype";
     audio.setAttribute("style", "display: none;");
-    audio.volume = settings.get("volume", 100)/100;
+    audio.volume = 100;//settings.get("volume", 100)/100;
     document.body.appendChild(audio);
     document.addEventListener("keydown", this.keyDown)
     document.addEventListener("keyup", this.keyUp)
-    powercord.api.settings.registerSettings(
+    /*powercord.api.settings.registerSettings(
         this.entityID,
         {
             category: this.entityID,
@@ -22,14 +22,14 @@ export async function startPlugin(): Promise<void> {
             render: (props) => React.createElement(Settings, {main: this, ...props})
             
         }
-    )
+    )*/
 }
 export async function pluginWillUnload(): Promise<void> {
     //remove the audio element from the page root
     document.body.removeChild(document.getElementById("osutype"));
     document.removeEventListener("keydown", this.keyDown);
     document.removeEventListener("keyup", this.keyUp);
-    powercord.api.settings.unregisterSettings(this.entityID);
+    //powercord.api.settings.unregisterSettings(this.entityID);
 
 }
 keyDown(e) {
