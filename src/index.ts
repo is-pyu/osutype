@@ -1,4 +1,3 @@
-//old const { Plugin } = require('powercord/entities');
 //import settings from "./settings";
 //import React from "react";
 let lastKey = 0;
@@ -19,10 +18,10 @@ export function start(): void {
     document.body.appendChild(audio);
     document.addEventListener("keydown", (e: KeyboardEvent) => {
       keyDown(e);
-   });
+    });
     document.addEventListener("keyup", (e: KeyboardEvent) => {
       keyUp(e);
-   });
+    });
     /*powercord.api.settings.registerSettings(
         this.entityID,
         {
@@ -38,16 +37,17 @@ export function stop(): void {
     document.body.removeChild(document.getElementById("osutype") as HTMLInputElement);
     document.removeEventListener("keydown", (e: KeyboardEvent) => {
         keyDown(e);
-     });
+    });
     document.removeEventListener("keyup", (e: KeyboardEvent) => {
         keyUp(e);
-     });
+    });
     //powercord.api.settings.unregisterSettings(this.entityID);
 
 }
 export function keyDown(e: KeyboardEvent): void {
     //seek the audio element to 0 seconds and play it
-    if (e.isComposing || validKeycodes.includes(e.keyCode)) {
+    console.log("[Replugged:Plugin:Osutype] " + e.keyCode + e.isComposing );
+    if (validKeycodes.includes(e.keyCode)) {
         const keyCode: number = e.keyCode;
         const value = document.activeElement!.attributes.getNamedItem('role')?.value;
         const value2 = document.activeElement!.tagName.toLowerCase();
