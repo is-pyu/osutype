@@ -15,7 +15,7 @@ export function startPlugin(): void {
     audio.src = "https://github.com/happyori/OsuTyping/raw/master/menuclick.wav";
     audio.id = "osutype";
     audio.setAttribute("style", "display: none;");
-    audio.volume = 100;//settings.get("volume", 100)/100;
+    audio.volume = 1;//settings.get("volume", 100)/100;
     document.body.appendChild(audio);
     document.addEventListener("keydown", (e: KeyboardEvent) => {
       keyDown(e);
@@ -49,12 +49,12 @@ export function keyDown(e: KeyboardEvent): void {
     //seek the audio element to 0 seconds and play it
     if (validKeycodes.includes(e.keyCode)) {
         const keyCode: number = e.keyCode;
-        const value = document.activeElement.attributes.getNamedItem('role')?.value;
-        const value2 = document.activeElement.tagName.toLowerCase();
+        const value = document.activeElement!.attributes.getNamedItem('role')?.value;
+        const value2 = document.activeElement!.tagName.toLowerCase();
         if (value == 'textbox' || value == 'combobox' || value2 == 'input') {
-            if (nonSpamKeycodes.includes(keyCode) && keyCode == lastKey) {return};
-            (document.getElementById("osutype") as HTMLInputElement).currentTime = 0;
-            (document.getElementById("osutype") as HTMLInputElement).play();
+            if (nonSpamKeycodes.includes(keyCode) && keyCode == lastKey) {return;}
+            //(document.getElementById("osutype") as HTMLInputElement).currentTime = 0;
+            //(document.getElementById("osutype") as HTMLInputElement).play();
             lastKey = keyCode;
         }
     }
