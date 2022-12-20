@@ -1,6 +1,6 @@
 {
   "name": "osutype",
-  "version": "1.0.0",
+  "version": "1.0.0-b1",
   "description": "plays osu typing sounds when you type",
   "engines": {
     "node": ">=14.0.0"
