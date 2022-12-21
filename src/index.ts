@@ -17,15 +17,15 @@ const validKeycodes = [
 export function keyDown(e: KeyboardEvent): void {
   //seek the audio element to 0 seconds and play it
   if (validKeycodes.includes(e.keyCode)) {
-    const keyCode: number = e.keyCode;
+    const {keyCode} = e;
     const value = document.activeElement!.attributes.getNamedItem("role")?.value;
     const value2 = document.activeElement!.tagName.toLowerCase();
     if (value == "textbox" || value == "combobox" || value2 == "input") {
       if (nonSpamKeycodes.includes(keyCode) && keyCode == lastKey) {
         return;
       }
-      (document.getElementById("osutype") as HTMLInputElement).currentTime = 0;
-      (document.getElementById("osutype") as HTMLInputElement).play();
+      (document.getElementById("osutype") as HTMLAudioElement).currentTime = 0;
+      (document.getElementById("osutype") as HTMLAudioElement).play();
       lastKey = keyCode;
     }
   }
